@@ -1,5 +1,6 @@
 package com.simplify.ssdbackend.controller;
 
+import com.simplify.ssdbackend.exception.UserNotFoundException;
 import com.simplify.ssdbackend.model.User;
 import com.simplify.ssdbackend.repository.User.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,31 @@ public class UserController {
     @GetMapping("/users")
     List<User> getAllUsers(){
         return userRepository.findAll();
+    }
+
+    @GetMapping("/user/{id}")
+    User getUserById(@PathVariable Long id){
+        return userRepository.findById(id)
+            .orElseThrow(() -> new UserNotFoundException(id));
+    }
+
+    @PutMapping("/user/{id}")
+    User updateUser(@RequestBody User user, @PathVariable Long id){
+        return userRepository.findById(id)
+            .map(u -> {
+                u.setName(user.getName());
+                u.setUsername(user.getUsername());
+                u.setEmail(user.getEmail());
+                return userRepository.save(u);
+            })
+            .orElseThrow(() -> new UserNotFoundException(id));
+    }
+
+    @DeleteMapping("/user/{id}")
+    void deleteUser(@PathVariable Long id){
+        if(!userRepository.existsById(id))
+            throw new UserNotFoundException(id);
+
+        userRepository.deleteById(id);
     }
 }
