@@ -25,7 +25,6 @@ export default function AddUser() {
 
     return (        
         <div className='container'>
-            <h2>Trial! And Errors    </h2>
             <div className='row'>
                 <div className='col-md-6 offset-md-3 rounded p-4 mt-2 shadow'>
                     <h2 className='text-center'>Register User</h2>
