@@ -2,7 +2,8 @@ package com.simplify.ssdbackend.controller;
 
 import com.simplify.ssdbackend.exception.UserNotFoundException;
 import com.simplify.ssdbackend.model.User;
-import com.simplify.ssdbackend.repository.User.UserRepository;
+import com.simplify.ssdbackend.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
