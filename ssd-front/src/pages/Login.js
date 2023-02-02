@@ -8,11 +8,11 @@ export default function Login() {
                 <img className="w-100 mb-4" src={logo} alt="" />
                     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
-                    <div className="form-floating">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
+                    <div className="form-floating mb-2">
+                        <input type="username" class="form-control" id="floatingInput" placeholder="name@example.com" />
                             <label for="floatingInput">Username</label>
                     </div>
-                    <div className="form-floating">
+                    <div className="form-floating mb-2">
                         <input type="password" class="form-control" id="floatingPassword" placeholder="Password" />
                             <label for="floatingPassword">Password</label>
                     </div>
